@@ -1,10 +1,30 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
+
+import './styles/style.scss';
+
+import Main from './components/main/';
+import Login from './components/login/';
 
 class App extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      user: null,
+      auth: false
+    }
+  }
+
   render () {
-    return <p> Hello React! what's up?</p>;
+
+    if (!this.state.user || !this.state.auth) {
+      return <Login />
+    }
+
+    return <div></div>;
   }
 }
 
-render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
